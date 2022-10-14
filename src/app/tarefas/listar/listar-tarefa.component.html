@@ -25,6 +25,7 @@
             >
               <p>{{ tarefa.nome }}</p>
               <ion-button
+                (click)="load()"
                 style="color: white; margin: auto"
                 [routerLink]="['/tarefas/editar', tarefa.id]"
                 title="Editar"
@@ -65,7 +66,7 @@
       </table>
 
       <p *ngIf="tarefas.length === 0">
-        Nenhum item, clique em NOVO ITEM para adicionar.
+       Lista vazia.<br> clique em <span style="font-weight:bold;">NOVO ITEM</span> para adicionar.
       </p>
       <hr />
     </div>

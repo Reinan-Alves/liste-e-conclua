@@ -20,8 +20,16 @@ export class EditarTarefaComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    let id = +this.route.snapshot.params['id'];
+    // eslint-disable-next-line @typescript-eslint/dot-notation
+    const id = +this.route.snapshot.params['id'];
     this.tarefa = this.tarefaService.buscarPorId(id);
+    this.reload();
+  }
+  reload(){
+    if(localStorage.getItem('reload') === 'true'){
+      localStorage.setItem('reload','false');
+      location.reload();
+    }
   }
 
   atualizar(): void {

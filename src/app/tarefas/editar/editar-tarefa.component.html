@@ -1,44 +1,59 @@
-<h1>Editar tarefa</h1>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div style="background-color: black; color: aliceblue" class="head">
+      <ion-title class="tema">Editar item</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
 
-<div class="well">
-  <form #formTarefa="ngForm">
-    <div class="form-group">
-      <label for="nome">Tarefa:</label>
-      <input
-        type="text"
-        class="form-control"
-        id="nome"
-        name="nome"
-        [(ngModel)]="tarefa.nome"
-        #nome="ngModel"
-        minlength="5"
-        required
-      />
-      <div
-        *ngIf="nome.errors && (nome.dirty || nome.touched)"
-        class="alert alert-danger"
-      >
-        <div [hidden]="!nome.errors.required">Digite a tarefa.</div>
-        <div [hidden]="!nome.errors.minlength">
-          A tarefa deve conter ao menos 5 caracteres.
+<ion-content>
+  <div id="container">
+    <div class="well">
+      <form #formTarefa="ngForm">
+        <label for="nome"
+          ><span style="font-size: x-large; font-weight: bolder"
+            >Novo nome</span
+          ></label
+        ><br />
+        <br />
+        <ion-input
+          type="text"
+          class="form-control"
+          id="nome"
+          name="nome"
+          [(ngModel)]="tarefa.nome"
+          #nome="ngModel"
+          minlength="3"
+          required
+        ></ion-input>
+        <div
+          style="color: red"
+          *ngIf="nome.errors && (nome.dirty || nome.touched)"
+          class="alert alert-danger"
+        >
+          <div [hidden]="!nome.errors.required">Digite o nome.</div>
+          <div [hidden]="!nome.errors.minlength">
+            O item deve conter ao menos 3 caracteres.
+          </div>
         </div>
-      </div>
+        <div class="form-group text-center">
+          <ion-button
+          style="margin:25px;"
+            color="warning"
+            (click)="atualizar()"
+            [disabled]="!formTarefa.form.valid"
+            >Atualizar</ion-button
+          >
+
+          <ion-button [routerLink]="['/tarefas']" class="btn btn-default">
+            <span
+              class="glyphicon glyphicon-chevron-left"
+              aria-hidden="true"
+            ></span>
+            Voltar
+          </ion-button>
+        </div>
+      </form>
     </div>
-    <div class="form-group text-center">
-      <input
-        type="submit"
-        class="btn btn-success"
-        (click)="atualizar()"
-        value="Atualizar"
-        [disabled]="!formTarefa.form.valid"
-      />
-      <a [routerLink]="['/tarefas']" class="btn btn-default">
-        <span
-          class="glyphicon glyphicon-chevron-left"
-          aria-hidden="true"
-        ></span>
-        Voltar
-      </a>
-    </div>
-  </form>
-</div>
+  </div>
+</ion-content>
