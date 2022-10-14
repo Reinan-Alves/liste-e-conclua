@@ -8,6 +8,8 @@ import { CadastrarTarefaComponent } from './cadastrar';
 import { EditarTarefaComponent } from './editar';
 import { ComoUsarComponent } from './como-usar';
 import { IonicModule } from '@ionic/angular';
+import { IonicStorageModule } from '@ionic/storage-angular';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,14 @@ import { IonicModule } from '@ionic/angular';
     TarefaConcluidaDirective,
     ComoUsarComponent,
   ],
-  imports: [IonicModule.forRoot(),CommonModule, RouterModule, FormsModule],
+  imports: [
+    IonicModule.forRoot(),
+    IonicModule,
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    IonicStorageModule.forRoot(),
+  ],
   providers: [TarefaService],
 })
 export class TarefasModule {}

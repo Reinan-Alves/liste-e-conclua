@@ -17,6 +17,14 @@ export class CadastrarTarefaComponent implements OnInit {
 
   ngOnInit() {
     this.tarefa = new Tarefa(0, '', false);
+    this.reload();
+  }
+
+  reload(){
+    if(localStorage.getItem('reload') === 'true'){
+      localStorage.setItem('reload','false');
+      location.reload();
+    }
   }
 
   cadastrar(): void {

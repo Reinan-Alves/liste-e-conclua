@@ -6,10 +6,17 @@ import { TarefasModule } from './tarefas';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicModule } from '@ionic/angular';
-
+import { IonicStorageModule } from '@ionic/storage-angular';
 @NgModule({
   declarations: [AppComponent],
-  imports: [IonicModule.forRoot(),BrowserModule, FormsModule, AppRoutingModule, TarefasModule],
+  imports: [
+    IonicModule.forRoot(),
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    IonicStorageModule.forRoot(),
+    TarefasModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

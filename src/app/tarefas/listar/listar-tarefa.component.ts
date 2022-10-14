@@ -14,13 +14,16 @@ export class ListarTarefaComponent implements OnInit {
 
   ngOnInit() {
     this.tarefas = this.listarTodos();
-    this.listarTodos();
+    console.log(this.tarefas);
   }
 
   listarTodos(): Tarefa[] {
     return this.tarefaService.listarTodos();
   }
 
+  load() {
+    localStorage.setItem('reload','true');
+  }
   remover($event: any, tarefa: Tarefa): void {
     $event.preventDefault();
     if (confirm('Deseja remover o item "' + tarefa.nome + '"?')) {
