@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div style="background-color: black; color: aliceblue" class="head">
+      <ion-title class="tema">Como usar</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div id="container">
+    <div class="well">
+      <table class="table table-striped table-bordered table-hover">
+        <tbody>
+          <h1>Lista de Tarefas</h1>
+          <tr>
+            <td>Clique em nova tarefa para adicionar uma tarefa.</td>
+          </tr>
+          <tr>
+            <td>
+              Digite o nome da tarefa e pressione cadastrar para salvar a tarefa
+              ou voltar para abortar o procedimento.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Ao realizar a tarefa marque a caixa de seleção para indicar como concluída. Você também pode desfazer a ação desmarcando a caixa.
+            </td>
+          </tr>
+          <tr>
+            <td>O botão editar altera uma tarefa cadastrada.</td>
+          </tr>
+          <tr>
+            <td>O botão remover apaga uma tarefa cadastrada.</td>
+          </tr>
+          <tr>
+            <td>Ao sair as informações ficaram salvas no seu dispositivo.</td>
+          </tr>
+          <h1>Lista de Compras</h1>
+          <tr>
+            <td>Adicione os itens que serão comprados.</td>
+          </tr>
+          <tr>
+            <td>
+              A lista ficará salva, você pode sair da aplicação e optar em preencher os valores no local de compra.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Conforme o preenchimento dos valores você pode acompanhar o valor total ao final da página.
+            </td>
+          </tr>
+          <tr>
+            <td class="text-center" style="width: 200px">
+              <ion-button [routerLink]="['']" class="btn btn-default">
+                <span
+                  class="glyphicon glyphicon-chevron-left"
+                  aria-hidden="true"
+                ></span>
+                Voltar
+              </ion-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ion-content>

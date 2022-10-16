@@ -10,32 +10,33 @@
 </ion-header>
 <ion-content>
   <div id="container">
-    <h1>Sua lista de tarefas</h1>
+    <h1>Sua Lista de compras</h1>
     <ion-button
       style="margin-bottom: 10px"
       class="botoes"
-      [routerLink]="['/compras/listar']"
-      >Ir para lista de compras</ion-button
+      [routerLink]="['/tarefas/listar']"
+      >Ir para lista de tarefas</ion-button
     >
     <div class="espaco-lista">
       <table class="table table-striped table-bordered table-hover">
         <tbody>
           <tr>
-            <th>Tarefas</th>
+            <th>Itens da lista</th>
             <th>concluído?</th>
           </tr>
-          <tr *ngFor="let tarefa of tarefas">
+          <tr *ngFor="let compra of compras">
             <td
-              [tarefaConcluida]="tarefa.concluida"
-              [class.success]="!tarefa.concluida"
+              [compraConcluida]="compra.concluida"
+              [class.success]="!compra.concluida"
             >
-              <p>{{ tarefa.nome }}</p>
+              <p>{{ compra.nome }}</p>
+
               <ion-button
-                [tarefaConcluida]="tarefa.concluida"
-                [class.success]="!tarefa.concluida"
+                [compraConcluida]="compra.concluida"
+                [class.success]="!compra.concluida"
                 (click)="load()"
                 style="color: white; margin: auto"
-                [routerLink]="['/tarefas/editar', tarefa.id]"
+                [routerLink]="['/compras/editar', compra.id]"
                 title="Editar"
                 alt="Editar"
               >
@@ -46,15 +47,15 @@
                 Editar
               </ion-button>
               <ion-button
-                [tarefaConcluida]="tarefa.concluida"
-                [class.success]="!tarefa.concluida"
+                [compraConcluida]="compra.concluida"
+                [class.success]="!compra.concluida"
                 color="danger"
                 style="color: white; margin: auto"
                 href="#"
                 title="Remover"
                 alt="Remover"
                 class="btn btn-xs btn-danger"
-                (click)="remover($event, tarefa)"
+                (click)="remover($event, compra)"
               >
                 <span
                   class="glyphicon glyphicon-remove"
@@ -62,33 +63,47 @@
                 ></span>
                 Remover
               </ion-button>
+              <br />
+              <label style="margin-right: 10px">R$</label>
+              <input
+                [compraConcluida]="compra.concluida"
+                [class.success]="!compra.concluida"
+                style="margin-top: 15px"
+                #valor
+                value="{{ compra.valor }}"
+                type="number"
+                placeholder="digite o valor"
+                (keyup)="gerarValores(valor.value, compra)"
+              />
             </td>
             <td style="width: 70px" class="text-center">
               <input
                 type="checkbox"
-                [value]="tarefa.id"
-                [checked]="tarefa.concluida"
-                (click)="alterarStatus(tarefa)"
+                [value]="compra.id"
+                [checked]="compra.concluida"
+                (click)="alterarStatus(compra)"
               />
             </td>
           </tr>
         </tbody>
       </table>
 
-      <p *ngIf="tarefas.length === 0">
+      <p *ngIf="compras.length === 0">
         Lista vazia.<br />
         clique em <span style="font-weight: bold">NOVO ITEM</span> para
         adicionar.
       </p>
       <hr />
+      <p style="font-weight: 900">Total : {{ total | currency: "BRL" }}</p>
     </div>
     <ion-button
       class="botoes"
       (click)="load()"
-      style="color: white"
-      [routerLink]="['/tarefas/cadastrar']"
-      >Nova tarefa
+      style="color: white; margin: auto"
+      [routerLink]="['/compras/cadastrar']"
+      >Novo item
     </ion-button>
+
     <p>Desenvolvido por Por: <strong> Reinan santos</strong></p>
   </div>
 </ion-content>

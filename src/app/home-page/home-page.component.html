@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div style="background-color: black; color: aliceblue" class="head">
+      <ion-title class="tema"
+        ><span style="margin: 10px; font-weight: 900"
+          >LISTE E CONCLUA</span
+        ></ion-title
+      >
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div id="container">
+    <ion-img src="./assets/liste-conclua.png"></ion-img>
+    <h1 class="neon-header">O que deseja usar?</h1>
+    <div class="espaco-lista neon-header">
+      <ion-button
+        style="margin-bottom: 10px"
+        class="botoes"
+        [routerLink]="['/tarefas/listar']"
+        >Lista de tarefas</ion-button
+      >
+      <ion-button
+        style="margin-bottom: 10px"
+        class="botoes"
+        [routerLink]="['/compras/listar']"
+        >Lista de compras
+      </ion-button>
+      <ion-button
+        style="margin-bottom: 10px"
+        class="botoes"
+        [routerLink]="['/tarefas/como-usar']"
+        >Instruções de uso</ion-button
+      >
+    </div>
+  </div></ion-content
+>

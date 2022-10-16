@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <div style="background-color: black; color: aliceblue" class="head">
-      <ion-title class="tema">Editar tarefa</ion-title>
+      <ion-title class="tema">Editar item</ion-title>
     </div>
   </ion-toolbar>
 </ion-header>
@@ -9,7 +9,7 @@
 <ion-content>
   <div id="container">
     <div class="well">
-      <form #formTarefa="ngForm">
+      <form #formCompra="ngForm">
         <label for="nome"
           ><span style="font-size: x-large; font-weight: bolder"
             >Novo nome</span
@@ -21,7 +21,7 @@
           class="form-control"
           id="nome"
           name="nome"
-          [(ngModel)]="tarefa.nome"
+          [(ngModel)]="compra.nome"
           #nome="ngModel"
           minlength="3"
           required
@@ -41,11 +41,11 @@
           style="margin:25px;"
             color="warning"
             (click)="atualizar()"
-            [disabled]="!formTarefa.form.valid"
+            [disabled]="!formCompra.form.valid"
             >Atualizar</ion-button
           >
 
-          <ion-button [routerLink]="['/tarefas']" class="btn btn-default">
+          <ion-button [routerLink]="['/compras']" class="btn btn-default">
             <span
               class="glyphicon glyphicon-chevron-left"
               aria-hidden="true"

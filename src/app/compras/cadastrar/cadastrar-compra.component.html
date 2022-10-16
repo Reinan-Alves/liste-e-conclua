@@ -1,18 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <div style="background-color: black; color: aliceblue" class="head">
-      <ion-title class="tema">Editar tarefa</ion-title>
+      <ion-title class="tema">Cadastrar Item</ion-title>
     </div>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <div id="container">
     <div class="well">
-      <form #formTarefa="ngForm">
+      <form #formCompra="ngForm">
         <label for="nome"
           ><span style="font-size: x-large; font-weight: bolder"
-            >Novo nome</span
+            >Nome do item</span
           ></label
         ><br />
         <br />
@@ -21,7 +20,7 @@
           class="form-control"
           id="nome"
           name="nome"
-          [(ngModel)]="tarefa.nome"
+          [(ngModel)]="compra.nome"
           #nome="ngModel"
           minlength="3"
           required
@@ -38,14 +37,14 @@
         </div>
         <div class="form-group text-center">
           <ion-button
-          style="margin:25px;"
+          style="margin:20px;"
             color="warning"
-            (click)="atualizar()"
-            [disabled]="!formTarefa.form.valid"
-            >Atualizar</ion-button
+            (click)="cadastrar()"
+            [disabled]="!formCompra.form.valid"
+            >cadastrar</ion-button
           >
 
-          <ion-button [routerLink]="['/tarefas']" class="btn btn-default">
+          <ion-button [routerLink]="['/compras']" class="btn btn-default">
             <span
               class="glyphicon glyphicon-chevron-left"
               aria-hidden="true"

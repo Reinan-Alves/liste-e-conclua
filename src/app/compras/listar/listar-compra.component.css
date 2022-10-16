@@ -27,3 +27,12 @@ h1{
   padding: auto;
   width: 100%;
 }
+input {
+  margin:auto;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(147, 147, 147);
+  width:75%;
+
+}
+

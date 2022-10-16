@@ -2,22 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { TarefaService, TarefaConcluidaDirective } from './shared';
-import { ListarTarefaComponent } from './listar';
-import { CadastrarTarefaComponent } from './cadastrar';
-import { EditarTarefaComponent } from './editar';
-import { ComoUsarComponent } from '../como-usar';
+import { CompraService, CompraConcluidaDirective } from './shared';
 import { IonicModule } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { ListarCompraComponent } from './listar';
+import { CadastrarCompraComponent } from './cadastrar';
+import { EditarCompraComponent } from './editar';
 
 
 @NgModule({
   declarations: [
-    ListarTarefaComponent,
-    CadastrarTarefaComponent,
-    EditarTarefaComponent,
-    TarefaConcluidaDirective,
-    ComoUsarComponent,
+    ListarCompraComponent,
+    CadastrarCompraComponent,
+    EditarCompraComponent,
+    CompraConcluidaDirective,
   ],
   imports: [
     IonicModule.forRoot(),
@@ -27,6 +25,6 @@ import { IonicStorageModule } from '@ionic/storage-angular';
     FormsModule,
     IonicStorageModule.forRoot(),
   ],
-  providers: [TarefaService],
+  providers: [CompraService],
 })
-export class TarefasModule {}
+export class ComprasModule {}

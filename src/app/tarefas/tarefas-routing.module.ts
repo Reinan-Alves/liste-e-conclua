@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { CadastrarTarefaComponent } from './cadastrar';
 import { ListarTarefaComponent } from './listar';
 import { EditarTarefaComponent } from './editar';
-import { ComoUsarComponent } from './como-usar';
+import { ComoUsarComponent } from '../como-usar';
 
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
