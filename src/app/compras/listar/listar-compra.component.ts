@@ -11,6 +11,7 @@ export class ListarCompraComponent implements OnInit {
   compras: Compra[];
   total = 0;
   valores: number[];
+  spinner = false;
 
   constructor(private compraService: CompraService) {}
 
@@ -33,6 +34,18 @@ export class ListarCompraComponent implements OnInit {
       this.compraService.remover(compra.id);
       this.compras = this.compraService.listarTodos();
       this.gerarTotal();
+      this.ativarSpinner();
+      location.reload();
+    }
+  }
+
+  removerTodos() {
+    if (confirm('Deseja apagar todos os itens?')) {
+      this.compraService.removerTodos();
+      this.compras = this.compraService.listarTodos();
+      this.gerarTotal();
+      this.ativarSpinner();
+      location.reload();
     }
   }
 
@@ -40,29 +53,27 @@ export class ListarCompraComponent implements OnInit {
     if (confirm('Deseja alterar o status do item "' + compra.nome + '"?')) {
       this.compraService.alterarStatus(compra.id);
       this.compras = this.compraService.listarTodos();
+      this.ativarSpinner();
       location.reload();
     }
   }
 
   gerarValores(valor: string, compra: Compra) {
     const key = compra.id.toString();
-    const valorLocal = valor.toString();
+    const valorLocal = valor;
     localStorage.setItem(key, valorLocal);
     compra.valor = parseFloat(localStorage.getItem(key));
     this.gerarTotal();
-    console.log(this.compras);
   }
   gerarTotal() {
     this.total = 0;
     this.compras.map((c) => {
-      // eslint-disable-next-line use-isnan
       if (isNaN(c.valor)) {
         c.valor = 0;
       }
 
       this.total += c.valor;
-      localStorage.setItem('total',this.total.toString());
-      console.log(this.total);
+      localStorage.setItem('total', this.total.toString());
     });
   }
   carregarValores() {
@@ -79,4 +90,13 @@ export class ListarCompraComponent implements OnInit {
       this.total = parseFloat(localStorage.getItem('total'));
     });
   }
+  ativarSpinner() {
+    this.spinner = true;
+    setTimeout(() => {
+      this.spinner = false;
+    }, 300);
+  }
+  // isNumeric(val: string) {
+  //   return !isNaN(parseFloat(val)) && isFinite(parseFloat(val));
+  // }
 }

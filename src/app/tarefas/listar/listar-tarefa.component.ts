@@ -37,4 +37,10 @@ export class ListarTarefaComponent implements OnInit {
       this.tarefas = this.tarefaService.listarTodos();
     }
   }
+  removerTodos() {
+    if (confirm('Deseja apagar todos os itens?')) {
+      this.tarefaService.removerTodos();
+      this.tarefas = this.tarefaService.listarTodos();
+    }
+  }
 }

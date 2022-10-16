@@ -2,15 +2,21 @@
   <ion-toolbar>
     <div style="background-color: black; color: aliceblue" class="head">
       <ion-title class="tema"
-        ><span style="margin:10px; font-weight:900;">LISTE E CONCLUA</span
-        ><ion-button style="height:30px;" [routerLink]="['']">Home</ion-button></ion-title
+        ><span style="margin: 10px; font-weight: 900">LISTE E CONCLUA</span
+        ><ion-button style="height: 30px" [routerLink]="['']"
+          >Home</ion-button
+        ></ion-title
       >
     </div>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div id="container">
-    <h1>Sua Lista de compras</h1>
+  <div *ngIf="spinner === true" class="container">
+    <img src="./assets/spinner.gif" />
+  </div>
+
+  <div *ngIf="spinner === false" id="container">
+    <h1>Sua Lista de compras/vendas</h1>
     <ion-button
       style="margin-bottom: 10px"
       class="botoes"
@@ -73,8 +79,8 @@
                 value="{{ compra.valor }}"
                 type="number"
                 placeholder="digite o valor"
-                (keyup)="gerarValores(valor.value, compra)"
-              />
+                (blur)="gerarValores(valor.value, compra)"
+              >
             </td>
             <td style="width: 70px" class="text-center">
               <input
@@ -90,7 +96,7 @@
 
       <p *ngIf="compras.length === 0">
         Lista vazia.<br />
-        clique em <span style="font-weight: bold">NOVO ITEM</span> para
+        clique em <span style="font-weight: bold">Novo item</span> para
         adicionar.
       </p>
       <hr />
@@ -103,6 +109,7 @@
       [routerLink]="['/compras/cadastrar']"
       >Novo item
     </ion-button>
+    <ion-button color="danger" (click)="removerTodos()">Limpar lista</ion-button>
 
     <p>Desenvolvido por Por: <strong> Reinan santos</strong></p>
   </div>

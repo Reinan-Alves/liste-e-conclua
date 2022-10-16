@@ -52,4 +52,11 @@ export class TarefaService {
     });
     localStorage['tarefas'] = JSON.stringify(tarefas);
   }
+  removerTodos(): void {
+    let tarefas: Tarefa[] = this.listarTodos();
+    tarefas = [];
+    //compras = compras.filter((tarefa) => tarefa.id !== id);
+    // eslint-disable-next-line @typescript-eslint/dot-notation
+    localStorage['tarefas'] = JSON.stringify(tarefas);
+  }
 }

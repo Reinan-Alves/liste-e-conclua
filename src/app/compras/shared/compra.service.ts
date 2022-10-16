@@ -43,6 +43,14 @@ export class CompraService {
     localStorage['compras'] = JSON.stringify(compras);
   }
 
+  removerTodos(): void {
+    let compras: Compra[] = this.listarTodos();
+    compras = [];
+    //compras = compras.filter((tarefa) => tarefa.id !== id);
+    // eslint-disable-next-line @typescript-eslint/dot-notation
+    localStorage['compras'] = JSON.stringify(compras);
+  }
+
   alterarStatus(id: number): void {
     const compras: Compra[] = this.listarTodos();
     compras.forEach((obj, index, objs) => {

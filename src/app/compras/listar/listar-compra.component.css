@@ -35,4 +35,9 @@ input {
   width:75%;
 
 }
+img {
+  align-items: center;
+  margin-left:40%;
+  margin-top:20%;
+}
 
